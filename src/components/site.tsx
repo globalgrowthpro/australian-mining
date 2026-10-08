@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
 import logo from '@/assets/company-logo.jpeg.asset.json';
 import { products } from '@/lib/products';
+import { BottomNav, InstallBanner, WhatsAppButton } from '@/components/mobile-extras';
 
 const nav = [{ name: 'Home', to: '/' }, { name: 'Our products', to: '/products' }, { name: 'About us', to: '/about' }, { name: 'Contact', to: '/contact' }] as const;
 export function Site({ children }: { children: ReactNode }) {
@@ -40,8 +41,11 @@ export function Site({ children }: { children: ReactNode }) {
    </div>
    {open && <nav ref={mobileNav} id="mobile-menu" aria-label="Mobile navigation" className="site-container flex flex-col gap-3 border-t border-border py-5 lg:hidden">{nav.map(item => <Link to={item.to} key={item.to} className="nav-link" onClick={() => setOpen(false)}>{item.name}</Link>)}<Button asChild><Link to="/contact" onClick={() => setOpen(false)}>Request a quote <ArrowUpRight /></Link></Button></nav>}
   </header>
-  <main id="main-content">{children}</main>
-  <footer className="dark-band">
+  <main id="main-content" className="max-md:pb-20">{children}</main>
+  <WhatsAppButton />
+  <InstallBanner />
+  <BottomNav />
+  <footer className="dark-band max-md:hidden">
    <div className="site-container grid gap-10 py-14 md:grid-cols-[2fr_1fr_1fr]">
     <div><div className="flex items-center gap-4"><div className="brand-logo"><img src={logo.url} alt="Company logo" width={74} height={74} loading="lazy" /></div><span className="font-display text-lg">Australian Mining<br />& Manufacturing</span></div><p className="mt-5 max-w-sm text-sm leading-7">Natural stone, blocks, slabs, and polishing products. A focused approach to stone supply.</p></div>
     <div><h3 className="mb-4 text-sm">Explore</h3><div className="flex flex-col gap-3 text-sm">{nav.map(item => <Link key={item.to} to={item.to}>{item.name}</Link>)}</div></div>
