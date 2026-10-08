@@ -5,7 +5,7 @@ import { Site } from '@/components/site';
 import { Button } from '@/components/ui/button';
 import { products, pageHead } from '@/lib/products';
 
-export const Route = createFileRoute('/contact')({ validateSearch: (search: Record<string, unknown>) => ({ product: typeof search.product === 'string' && products.some(p => p.id === search.product) ? search.product : '' }), head: () => pageHead('Request a quote', 'Prepare your stone, blocks, slabs, or polishing product requirements for a quotation from Australian Mining & Manufacturing.'), component: Contact });
+export const Route = createFileRoute('/contact')({ validateSearch: (search: Record<string, unknown>): { product?: string } => ({ product: typeof search['product'] === 'string' && products.some(p => p.id === search['product']) ? search['product'] : '' }), head: () => pageHead('Request a quote', 'Prepare your stone, blocks, slabs, or polishing product requirements for a quotation from Australian Mining & Manufacturing.'), component: Contact });
 function Contact() {
  const { product } = Route.useSearch();
  const [prepared, setPrepared] = useState(false);
