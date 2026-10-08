@@ -51,5 +51,3 @@ export function Site({ children }: { children: ReactNode }) {
   </footer>
  </>;
 }
-
-export function QuoteBand() { return <section className="dark-band"><div className="site-container flex flex-col justify-between gap-8 py-16 md:flex-row md:items-center"><div><span className="eyebrow text-gold">LET’S TALK MATERIALS</span><h2 className="mt-4 font-display text-3xl font-medium md:text-4xl">The right stone starts with a conversation.</h2></div><Button asChild size="lg" className="cta shrink-0 self-start md:self-center"><Link to="/contact">Discuss your requirements <ArrowUpRight /></Link></Button></div></section>; }

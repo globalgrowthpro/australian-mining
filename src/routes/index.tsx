@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowRight, ArrowUpRight, Layers3, Box, Gem, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Site, QuoteBand } from '@/components/site';
+import { Site } from '@/components/site';
 import { pageHead, products } from '@/lib/products';
 import hero from '@/assets/stone-collection.jpg';
 
@@ -30,6 +30,5 @@ function Index() {
   </section>
   <section className="border-y border-border bg-card"><div className="site-container grid items-center gap-12 py-16 md:grid-cols-2"><div><p className="eyebrow mb-4">A FOCUSED APPROACH</p><h2 className="section-title">Stone is our business.<br />Your requirements come first.</h2><Button asChild variant="link" className="mt-5 px-0"><Link to="/about">About our company <ArrowUpRight /></Link></Button></div><div><p className="text-[15px] leading-8 text-muted-foreground">Australian Mining & Manufacturing is focused on the sale and supply of natural stone, stone blocks, slabs, and polishing products.</p><p className="mt-4 text-[15px] leading-8 text-muted-foreground">Whether you’re selecting material or planning a surface finish, start with the product, dimensions, and quantity you need. We’ll discuss the details with you.</p><div className="mt-7 flex items-center gap-3 border-t border-border pt-5 text-xs text-primary"><span className="h-px w-7 bg-gold" />Stone supply. Not quarry operations.</div></div></div></section>
   <section className="section"><div className="site-container"><p className="eyebrow mb-4">YOUR NEXT STEP</p><div className="grid gap-12 lg:grid-cols-[1fr_2fr]"><h2 className="section-title">Let’s get the<br />details right.</h2><div className="grid gap-8 sm:grid-cols-3">{[{name:'Share your requirements',text:'Tell us your product, dimensions, finish, and quantity.'},{name:'Discuss the options',text:'Review material suitability and availability with our team.'},{name:'Request a quotation',text:'Confirm the details for a quotation tailored to your enquiry.'}].map((s,i) => <div key={s.name} className="border-t border-border pt-5"><span className="font-display text-xl text-primary">0{i+1}</span><h3 className="mt-5 text-sm font-semibold">{s.name}</h3><p className="mt-3 text-xs leading-6 text-muted-foreground">{s.text}</p></div>)}</div></div></div></section>
-  <QuoteBand />
  </Site>;
 }
