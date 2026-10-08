@@ -20,7 +20,7 @@ const items = [
 ] as const;
 
 export function BottomNav() {
- return <nav aria-label="Bottom navigation" className="bottom-nav md:hidden">
+ return <nav aria-label="Bottom navigation" className="bottom-nav">
   {items.map(({ name, to, icon: Icon }) => <Link key={to} to={to} activeOptions={{ exact: to === '/' }} className="bottom-nav-item" activeProps={{ 'aria-current': 'page' }}><Icon className="h-5 w-5" /><span>{name}</span></Link>)}
  </nav>;
 }
