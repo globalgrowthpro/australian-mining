@@ -189,6 +189,7 @@ a { text-decoration: none; }
  .site-container { padding-inline: 20px; }
  .brand-logo { width: 54px; height: 54px; }
  .stone-hero { min-height: 570px; }
+ .stone-hero::after { background: oklch(0.18 0.009 155 / 66%); }
  .hero-content { padding-top: 64px; padding-bottom: 80px; }
  .hero-content h1 { font-size: 38px; max-width: 430px; }
  .section { padding-block: 52px; }
