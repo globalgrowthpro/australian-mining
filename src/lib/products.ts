@@ -3,6 +3,8 @@ import blocks from '@/assets/blocks.jpg';
 import slabs from '@/assets/slabs.jpg';
 import polishing from '@/assets/polishing.jpg';
 
+export type Material = { id: string; category: string; name: string; image: string; alt: string; description: string; detail: string; source: string; credit: string };
+
 export const products = [
   { id: 'stone', number: '01', name: 'Natural stone', tag: 'THE MATERIAL', image: stones, description: 'Natural stone for your material and project requirements.', detail: 'Tell us the stone type, colour, intended use, and quantity you need.' },
   { id: 'blocks', number: '02', name: 'Stone blocks', tag: 'THE FOUNDATION', image: blocks, description: 'Solid stone blocks for processing and fabrication.', detail: 'Share your preferred material, block dimensions, quantity, and delivery location.' },

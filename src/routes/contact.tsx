@@ -10,10 +10,10 @@ import stones from '@/assets/stones.jpg';
 const EMAIL = 'ateff9612@gmail.com';
 const PHONE = '+61 450 995 387';
 
-export const Route = createFileRoute('/contact')({ validateSearch: (search: Record<string, unknown>): { product?: string } => ({ product: typeof search['product'] === 'string' && products.some(p => p.id === search['product']) ? search['product'] : '' }), head: () => pageHead('Contact us', 'Contact Australian Mining & Manufacturing about natural stone, blocks, slabs, and polishing products.'), component: Contact });
+export const Route = createFileRoute('/contact')({ validateSearch: (search: Record<string, unknown>): { product?: string; material?: string } => ({ product: typeof search['product'] === 'string' && products.some(p => p.id === search['product']) ? search['product'] : '', material: typeof search['material'] === 'string' ? search['material'].slice(0, 100) : '' }), head: () => pageHead('Contact us', 'Contact Australian Mining & Manufacturing about natural stone, blocks, slabs, and polishing products.'), component: Contact });
 
 function Contact() {
- const { product } = Route.useSearch();
+ const { product, material } = Route.useSearch();
  const [prepared, setPrepared] = useState(false);
  function submit(event: FormEvent<HTMLFormElement>) {
   event.preventDefault();
@@ -55,7 +55,7 @@ function Contact() {
     </div>
     <label className="block text-sm font-medium">Product category *<select key={product} name="Product" required defaultValue={product} className="form-field"><option value="" disabled>Select a product</option>{products.map(p => <option value={p.id} key={p.id}>{p.name}</option>)}<option value="general">General enquiry</option></select></label>
     <label className="block text-sm font-medium">Project / delivery location<input name="Location" placeholder="Enter project location" className="form-field" /></label>
-    <label className="block text-sm font-medium">Your requirements *<textarea name="Requirements" required maxLength={3000} rows={5} className="form-field" placeholder="Material, dimensions, thickness, finish, and quantity…" /></label>
+     <label className="block text-sm font-medium">Your requirements *<textarea key={material} defaultValue={material ? `Product of interest: ${material}\n` : ''} name="Requirements" required maxLength={3000} rows={5} className="form-field" placeholder="Material, dimensions, thickness, finish, and quantity…" /></label>
     <div className="flex gap-4 rounded-md bg-secondary/40 p-4"><Lock className="mt-0.5 size-5 shrink-0 text-primary" /><p className="text-xs leading-6 text-muted-foreground"><strong className="block text-sm text-foreground">Your information stays with you</strong>Details stay in your browser until you download them. Nothing is sent or stored by this website.</p></div>
     <Button type="submit" size="lg" className="w-full"><Download />Download enquiry</Button>
     {prepared && <div role="status" className="border-l-2 border-primary bg-secondary/30 p-4 text-sm leading-6">Your file is ready. Attach it to an email to {EMAIL} — it has not been sent yet.</div>}
