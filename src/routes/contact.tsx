@@ -3,9 +3,9 @@ import { Download, Lock, Mail, MapPin, Phone } from 'lucide-react';
 import { useState, type FormEvent } from 'react';
 import { Site } from '@/components/site';
 import { Button } from '@/components/ui/button';
-import { products, pageHead } from '@/lib/products';
-import slabs from '@/assets/slabs.jpg';
-import stones from '@/assets/stones.jpg';
+import { products, pageHead, collectionHero } from '@/lib/products';
+const slabs = collectionHero;
+const stones = collectionHero;
 
 const EMAIL = 'ateff9612@gmail.com';
 const PHONE = '+61 450 995 387';
