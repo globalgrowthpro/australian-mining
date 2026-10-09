@@ -30,7 +30,7 @@ export function Site({ children }: { children: ReactNode }) {
  return <>
   <a href="#main-content" className="skip-link">Skip to content</a>
   <header className="site-header">
-   <div className="site-container flex h-[112px] items-center justify-between gap-5 max-md:h-[88px]">
+    <div className="site-container flex h-[88px] items-center justify-between gap-5 max-md:h-[80px]">
     <Link to="/" className="flex items-center gap-4 max-md:gap-2.5" aria-label="Australian Mining and Manufacturing home">
      <div className="brand-logo"><img src={logo.url} alt="Australian Mining & Manufacturing logo" width={74} height={74} /></div>
      <span className="font-display text-[15px] font-semibold leading-[1.5] max-md:text-[11px]">AUSTRALIAN MINING<span className="block text-[11px] font-normal tracking-[2px] max-md:text-[9px] max-md:tracking-[1px]">& MANUFACTURING</span></span>
