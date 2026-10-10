@@ -2,8 +2,9 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowRight, ArrowUpRight, Layers3, Box, Gem, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Site } from '@/components/site';
-import { pageHead, products, materials, collectionHero } from '@/lib/products';
+import { pageHead, products, materials, heroSlides } from '@/lib/products';
 import { MaterialCard } from '@/components/material-card';
+import { HeroSlider } from '@/components/hero-slider';
 
 export const Route = createFileRoute('/')({ head: () => pageHead('Natural stone, blocks, slabs & polishing products', 'Australian Mining & Manufacturing supplies natural stone, stone blocks, slabs, and polishing products. Explore our products and discuss your requirements.'), component: Index });
 
