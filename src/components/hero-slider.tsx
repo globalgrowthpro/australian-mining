@@ -19,9 +19,17 @@ export function HeroSlider() {
     return () => window.clearInterval(id);
   }, []);
 
+  const touchX = useRef<number | null>(null);
   const go = (next: number) => setIndex((next + heroSlides.length) % heroSlides.length);
+  const onTouchStart = (e: React.TouchEvent) => { touchX.current = e.touches[0]?.clientX ?? null; };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touchX.current, end = e.changedTouches[0]?.clientX;
+    touchX.current = null;
+    if (start == null || end == null || Math.abs(end - start) < 40) return;
+    go(end < start ? index + 1 : index - 1);
+  };
 
-  return <div className="hero-slider" onMouseEnter={() => { paused.current = true; }} onMouseLeave={() => { paused.current = false; }} onFocus={() => { paused.current = true; }} onBlur={() => { paused.current = false; }}>
+  return <div className="hero-slider" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onMouseEnter={() => { paused.current = true; }} onMouseLeave={() => { paused.current = false; }} onFocus={() => { paused.current = true; }} onBlur={() => { paused.current = false; }}>
     {heroSlides.map((slide, i) => <img key={slide.image} src={slide.image} alt={i === index ? slide.alt : ''} aria-hidden={i !== index} className={`hero-slide${i === index ? ' active' : ''}`} loading={i === 0 ? 'eager' : 'lazy'} fetchPriority={i === 0 ? 'high' : undefined} />)}
     <div className="hero-caption" aria-live="polite">{heroSlides[index]?.caption} · Material example<br />Photo: {heroSlides[index]?.credit}</div>
     <button type="button" className="hero-nav hero-nav--prev" aria-label="Previous slide" onClick={() => go(index - 1)}><ChevronLeft /></button>
