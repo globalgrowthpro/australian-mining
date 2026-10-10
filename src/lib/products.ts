@@ -6,10 +6,23 @@ import blueGranitePhoto from '@/assets/04_granite_countertop.jpg.asset.json';
 import creamGranitePhoto from '@/assets/05_granite_texture.jpg.asset.json';
 import finishingPhoto from '@/assets/06_diamond_disc.jpg.asset.json';
 import slabPhoto from '@/assets/07_granite_slab_showroom.jpg.asset.json';
+import heroSandstonePhoto from '@/assets/hero_sandstone.jpg.asset.json';
+import heroGranitePhoto from '@/assets/hero_granite_slab.jpg.asset.json';
+import heroOnyxPhoto from '@/assets/hero_onyx.jpg.asset.json';
+import heroSlatePhoto from '@/assets/hero_slate.jpg.asset.json';
 
 export type Material = { id: string; category: string; name: string; image: string; alt: string; description: string; detail: string; source: string; credit: string };
+export type HeroSlide = { image: string; alt: string; caption: string; credit: string; source: string };
 export const collectionHero = marblePhoto.url;
 const stones = marblePhoto.url, blocks = blockPhoto.url, slabs = slabPhoto.url, polishing = finishingPhoto.url;
+
+export const heroSlides: HeroSlide[] = [
+  { image: marblePhoto.url, alt: 'Natural veining in a polished marble surface', caption: 'Natural marble', credit: 'Colin Watts · Unsplash License', source: 'https://unsplash.com/photos/a-close-up-of-beige-marble-with-intricate-brown-veining-VVzp03HUIGk' },
+  { image: heroSandstonePhoto.url, alt: 'Naturally banded sandstone in warm red and cream tones', caption: 'Veined sandstone', credit: 'Boris Debic · CC BY-SA 4.0', source: 'https://commons.wikimedia.org/wiki/File:Sandstone_in_Petra_Jordan.jpg' },
+  { image: heroGranitePhoto.url, alt: 'Cut and polished grey granite surface', caption: 'Polished granite', credit: 'James St. John · CC BY 2.0', source: 'https://commons.wikimedia.org/wiki/File:Granite_(cut_%26_polished_surface).jpg' },
+  { image: heroOnyxPhoto.url, alt: 'Marbled onyx with golden and grey banding', caption: 'Marbled onyx', credit: 'James St. John · CC BY 2.0', source: 'https://commons.wikimedia.org/wiki/File:%22Onyx%22.jpg' },
+  { image: heroSlatePhoto.url, alt: 'Wall of split slate stone in grey and rust tones', caption: 'Split slate walling', credit: 'Remi Mathis · CC BY-SA 3.0', source: 'https://commons.wikimedia.org/wiki/File:Seil_-_Slate_wall.JPG' },
+];
 
 export const materials: Material[] = [
  { id: 'marble', category: 'stone', name: 'Veined marble', image: marblePhoto.url, alt: 'Photograph of a beige marble surface with natural brown veining', description: 'Expressive veining and natural variation for architectural surfaces.', detail: 'Share your preferred colour, intended application, dimensions and finish.', source: 'https://unsplash.com/photos/a-close-up-of-beige-marble-with-intricate-brown-veining-VVzp03HUIGk', credit: 'Colin Watts · Unsplash License · resized' },

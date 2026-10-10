@@ -2,24 +2,24 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowRight, ArrowUpRight, Layers3, Box, Gem, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Site } from '@/components/site';
-import { pageHead, products, materials, collectionHero } from '@/lib/products';
+import { pageHead, products, materials, heroSlides } from '@/lib/products';
 import { MaterialCard } from '@/components/material-card';
+import { HeroSlider } from '@/components/hero-slider';
 
 export const Route = createFileRoute('/')({ head: () => pageHead('Natural stone, blocks, slabs & polishing products', 'Australian Mining & Manufacturing supplies natural stone, stone blocks, slabs, and polishing products. Explore our products and discuss your requirements.'), component: Index });
 
 function Index() {
  const icons = [Gem, Box, Layers3, Sparkles];
  return <Site>
-  <section className="stone-hero">
-   <img src={collectionHero} alt="Natural veining in a polished marble surface" width={1920} height={1024} fetchPriority="high" />
-   <div className="site-container hero-content fade-in">
-    <div className="eyebrow mb-5 flex items-center gap-3"><span className="h-px w-8 bg-gold" />NATURAL STONE. CONSIDERED SUPPLY.</div>
-    <h1>Australian Mining<br />& Manufacturing</h1>
-    <p className="mt-5 max-w-[470px] text-[15px] leading-[1.8]">Natural stone, blocks, slabs and polishing products.<br className="hidden md:block" /> A considered selection, from material to finish.</p>
-    <div className="mt-7 flex flex-wrap gap-3"><Button asChild variant="hero" size="lg"><Link to="/products">Explore our products <ArrowUpRight /></Link></Button><Button asChild variant="heroOutline" size="lg"><Link to="/contact">Request a quote <ArrowRight /></Link></Button></div>
-   </div>
-   <span className="hero-footnote">Natural marble · Material example</span>
-  </section>
+   <section className="stone-hero">
+    <HeroSlider />
+    <div className="site-container hero-content fade-in">
+     <div className="eyebrow mb-5 flex items-center gap-3"><span className="h-px w-8 bg-gold" />NATURAL STONE. CONSIDERED SUPPLY.</div>
+     <h1>Australian Mining<br />& Manufacturing</h1>
+     <p className="mt-5 max-w-[470px] text-[15px] leading-[1.8]">Natural stone, blocks, slabs and polishing products.<br className="hidden md:block" /> A considered selection, from material to finish.</p>
+     <div className="mt-7 flex flex-wrap gap-3"><Button asChild variant="hero" size="lg"><Link to="/products">Explore our products <ArrowUpRight /></Link></Button><Button asChild variant="heroOutline" size="lg"><Link to="/contact">Request a quote <ArrowRight /></Link></Button></div>
+    </div>
+   </section>
   <div className="border-b border-border bg-card"><div className="site-container grid grid-cols-2 gap-6 py-7 md:grid-cols-4">{products.map((p,i) => { const Icon = icons[i]; return <Link key={p.id} to="/products" search={{ category: p.id }} className="flex items-center justify-center gap-3 text-xs font-medium md:text-sm">{Icon && <Icon className="size-5 text-primary" strokeWidth={1.4} />}{p.name}</Link>; })}</div></div>
   <section className="section">
    <div className="site-container">
