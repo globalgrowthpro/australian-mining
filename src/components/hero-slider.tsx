@@ -23,7 +23,7 @@ export function HeroSlider() {
 
   return <div className="hero-slider" onMouseEnter={() => { paused.current = true; }} onMouseLeave={() => { paused.current = false; }} onFocus={() => { paused.current = true; }} onBlur={() => { paused.current = false; }}>
     {heroSlides.map((slide, i) => <img key={slide.image} src={slide.image} alt={i === index ? slide.alt : ''} aria-hidden={i !== index} className={`hero-slide${i === index ? ' active' : ''}`} loading={i === 0 ? 'eager' : 'lazy'} fetchPriority={i === 0 ? 'high' : undefined} />)}
-    <div className="hero-caption" aria-live="polite">{heroSlides[index].caption} · Material example<br />Photo: {heroSlides[index].credit}</div>
+    <div className="hero-caption" aria-live="polite">{heroSlides[index]?.caption} · Material example<br />Photo: {heroSlides[index]?.credit}</div>
     <button type="button" className="hero-nav hero-nav--prev" aria-label="Previous slide" onClick={() => go(index - 1)}><ChevronLeft /></button>
     <button type="button" className="hero-nav hero-nav--next" aria-label="Next slide" onClick={() => go(index + 1)}><ChevronRight /></button>
     <div className="hero-dots" role="group" aria-label="Hero slides">
